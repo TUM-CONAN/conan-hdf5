@@ -13,44 +13,114 @@ variables:
       - /^ci_tests\/.+$/
       - /^stable\/.+$/
 
-gcc-4.9:
+gcc-4.9:1:
     image: lasote/conangcc49
     variables:
         CONAN_GCC_VERSIONS: "4.9"
+        CONAN_CURRENT_PAGE: 1
+        CONAN_TOTAL_PAGES: 2
     <<: *build-template
 
-gcc-5:
+gcc-4.9:2:
+    image: lasote/conangcc49
+    variables:
+        CONAN_GCC_VERSIONS: "4.9"
+        CONAN_CURRENT_PAGE: 2
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+
+gcc-5:1:
     image: lasote/conangcc5
     variables:
         CONAN_GCC_VERSIONS: "5"
+        CONAN_CURRENT_PAGE: 1
+        CONAN_TOTAL_PAGES: 2
     <<: *build-template
 
-gcc-6:
+gcc-5:2:
+    image: lasote/conangcc5
+    variables:
+        CONAN_GCC_VERSIONS: "5"
+        CONAN_CURRENT_PAGE: 2
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+
+gcc-6:1:
     image: lasote/conangcc6
     variables:
         CONAN_GCC_VERSIONS: "6"
+        CONAN_CURRENT_PAGE: 1
+        CONAN_TOTAL_PAGES: 2
     <<: *build-template
 
-gcc-7:
+gcc-6:2:
+    image: lasote/conangcc6
+    variables:
+        CONAN_GCC_VERSIONS: "6"
+        CONAN_CURRENT_PAGE: 2
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+
+gcc-7:1:
     image: lasote/conangcc7
     variables:
         CONAN_GCC_VERSIONS: "7"
+        CONAN_CURRENT_PAGE: 1
+        CONAN_TOTAL_PAGES: 2
     <<: *build-template
 
-clang-4.0:
+gcc-7:2:
+    image: lasote/conangcc7
+    variables:
+        CONAN_GCC_VERSIONS: "7"
+        CONAN_CURRENT_PAGE: 2
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+
+clang-4.0:1:
     image: lasote/conanclang40
     variables:
         CONAN_CLANG_VERSIONS: "4.0"
+        CONAN_CURRENT_PAGE: 1
+        CONAN_TOTAL_PAGES: 2
     <<: *build-template
 
-clang-5.0:
+clang-4.0:2:
+    image: lasote/conanclang40
+    variables:
+        CONAN_CLANG_VERSIONS: "4.0"
+        CONAN_CURRENT_PAGE: 2
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+
+clang-5.0:1:
     image: lasote/conanclang50
     variables:
         CONAN_CLANG_VERSIONS: "5.0"
+        CONAN_CURRENT_PAGE: 1
+        CONAN_TOTAL_PAGES: 2
     <<: *build-template
 
-clang-6.0:
+clang-5.0:2:
+    image: lasote/conanclang50
+    variables:
+        CONAN_CLANG_VERSIONS: "5.0"
+        CONAN_CURRENT_PAGE: 2
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+
+clang-6.0:1:
     image: lasote/conanclang60
     variables:
         CONAN_CLANG_VERSIONS: "6.0"
+        CONAN_CURRENT_PAGE: 1
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+
+clang-6.0:2:
+    image: lasote/conanclang60
+    variables:
+        CONAN_CLANG_VERSIONS: "6.0"
+        CONAN_CURRENT_PAGE: 2
+        CONAN_TOTAL_PAGES: 2
     <<: *build-template
