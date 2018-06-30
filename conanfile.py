@@ -61,5 +61,5 @@ class Hdf5Conan(ConanFile):
     def package_info(self):
         self.cpp_info.libs = tools.collect_libs(self)
 
-        if not self.options.shared:
+        if not self.options.shared and not self.settings.os == "Windows":
             self.cpp_info.libs.append("dl")
