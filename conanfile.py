@@ -1,11 +1,7 @@
 import os
 import shutil
-from conans import ConanFile, AutoToolsBuildEnvironment, tools, CMake
+from conans import ConanFile, tools, CMake
 from utils import SourceDownloader, GitRepository
-
-
-class ConfigurationException(Exception):
-    pass
 
 
 class Hdf5Conan(ConanFile):
@@ -24,8 +20,7 @@ class Hdf5Conan(ConanFile):
 
     settings = "os", "arch", "compiler", "build_type"
     options = {
-        "shared": [True, False],
-        "parallel": [True, False]
+        "shared": [True, False]
     }
     default_options = "shared=False"
 
