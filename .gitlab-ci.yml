@@ -1,5 +1,4 @@
 variables:
-    GIT_SUBMODULE_STRATEGY: recursive
     CONAN_USERNAME: "arsen-studio"
     CONAN_UPLOAD: "https://api.bintray.com/conan/arsen-studio/arsen-deps"
 
@@ -14,7 +13,7 @@ variables:
       - /^stable\/.+$/
 
 gcc-4.9:1:
-    image: lasote/conangcc49
+    image: conanio/gcc49
     variables:
         CONAN_GCC_VERSIONS: "4.9"
         CONAN_CURRENT_PAGE: 1
@@ -22,7 +21,7 @@ gcc-4.9:1:
     <<: *build-template
 
 gcc-4.9:2:
-    image: lasote/conangcc49
+    image: conanio/gcc49
     variables:
         CONAN_GCC_VERSIONS: "4.9"
         CONAN_CURRENT_PAGE: 2
@@ -30,7 +29,7 @@ gcc-4.9:2:
     <<: *build-template
 
 gcc-5:1:
-    image: lasote/conangcc5
+    image: conanio/gcc5
     variables:
         CONAN_GCC_VERSIONS: "5"
         CONAN_CURRENT_PAGE: 1
@@ -38,7 +37,7 @@ gcc-5:1:
     <<: *build-template
 
 gcc-5:2:
-    image: lasote/conangcc5
+    image: conanio/gcc5
     variables:
         CONAN_GCC_VERSIONS: "5"
         CONAN_CURRENT_PAGE: 2
@@ -46,7 +45,7 @@ gcc-5:2:
     <<: *build-template
 
 gcc-6:1:
-    image: lasote/conangcc6
+    image: conanio/gcc6
     variables:
         CONAN_GCC_VERSIONS: "6"
         CONAN_CURRENT_PAGE: 1
@@ -54,7 +53,7 @@ gcc-6:1:
     <<: *build-template
 
 gcc-6:2:
-    image: lasote/conangcc6
+    image: conanio/gcc6
     variables:
         CONAN_GCC_VERSIONS: "6"
         CONAN_CURRENT_PAGE: 2
@@ -62,7 +61,7 @@ gcc-6:2:
     <<: *build-template
 
 gcc-7:1:
-    image: lasote/conangcc7
+    image: conanio/gcc7
     variables:
         CONAN_GCC_VERSIONS: "7"
         CONAN_CURRENT_PAGE: 1
@@ -70,15 +69,31 @@ gcc-7:1:
     <<: *build-template
 
 gcc-7:2:
-    image: lasote/conangcc7
+    image: conanio/gcc7
     variables:
         CONAN_GCC_VERSIONS: "7"
         CONAN_CURRENT_PAGE: 2
         CONAN_TOTAL_PAGES: 2
     <<: *build-template
 
+gcc-8:1:
+    image: conanio/gcc8
+    variables:
+        CONAN_GCC_VERSIONS: "8"
+        CONAN_CURRENT_PAGE: 1
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+
+gcc-8:2:
+    image: conanio/gcc8
+    variables:
+        CONAN_GCC_VERSIONS: "8"
+        CONAN_CURRENT_PAGE: 2
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+
 clang-4.0:1:
-    image: lasote/conanclang40
+    image: conanio/clang40
     variables:
         CONAN_CLANG_VERSIONS: "4.0"
         CONAN_CURRENT_PAGE: 1
@@ -86,7 +101,7 @@ clang-4.0:1:
     <<: *build-template
 
 clang-4.0:2:
-    image: lasote/conanclang40
+    image: conanio/clang40
     variables:
         CONAN_CLANG_VERSIONS: "4.0"
         CONAN_CURRENT_PAGE: 2
@@ -94,7 +109,7 @@ clang-4.0:2:
     <<: *build-template
 
 clang-5.0:1:
-    image: lasote/conanclang50
+    image: conanio/clang50
     variables:
         CONAN_CLANG_VERSIONS: "5.0"
         CONAN_CURRENT_PAGE: 1
@@ -102,7 +117,7 @@ clang-5.0:1:
     <<: *build-template
 
 clang-5.0:2:
-    image: lasote/conanclang50
+    image: conanio/clang50
     variables:
         CONAN_CLANG_VERSIONS: "5.0"
         CONAN_CURRENT_PAGE: 2
@@ -110,7 +125,7 @@ clang-5.0:2:
     <<: *build-template
 
 clang-6.0:1:
-    image: lasote/conanclang60
+    image: conanio/clang60
     variables:
         CONAN_CLANG_VERSIONS: "6.0"
         CONAN_CURRENT_PAGE: 1
@@ -118,9 +133,30 @@ clang-6.0:1:
     <<: *build-template
 
 clang-6.0:2:
-    image: lasote/conanclang60
+    image: conanio/clang60
     variables:
         CONAN_CLANG_VERSIONS: "6.0"
         CONAN_CURRENT_PAGE: 2
         CONAN_TOTAL_PAGES: 2
     <<: *build-template
+
+
+clang-7:1:
+    image: conanio/clang7
+    variables:
+        CONAN_CLANG_VERSIONS: "7.0"
+        CONAN_CURRENT_PAGE: 1
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+    script:
+        - python3 build.py
+
+clang-7:2:
+    image: conanio/clang7
+    variables:
+        CONAN_CLANG_VERSIONS: "7.0"
+        CONAN_CURRENT_PAGE: 2
+        CONAN_TOTAL_PAGES: 2
+    <<: *build-template
+    script:
+        - python3 build.py
