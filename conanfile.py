@@ -1,12 +1,11 @@
 import os
 import shutil
 from conans import ConanFile, tools, CMake
-from utils import SourceDownloader, GitRepository
 
 
 class Hdf5Conan(ConanFile):
     name = "hdf5"
-    version = "1.10.2"
+    version = "1.10.4"
     description = "HDF5 C and C++ libraries"
     url = "https://gitlab.com/ArsenStudio/ArsenEngine/dependencies/conan-{0}".format(name)
     homepage = "https://www.hdfgroup.org/"
@@ -15,7 +14,7 @@ class Hdf5Conan(ConanFile):
 
     exports = ["LICENSE.md"]
 
-    exports_sources = ["CMakeLists.txt", "utils/*"]
+    exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
 
     settings = "os", "arch", "compiler", "build_type"
@@ -31,12 +30,9 @@ class Hdf5Conan(ConanFile):
     requires = "zlib/1.2.11@conan/stable"
 
     def source(self):
-        srcdl = SourceDownloader(self)
-
-        srcdl.addRepository(GitRepository(self, "https://bitbucket.hdfgroup.org/scm/hdffv/hdf5.git",
-                                          branch="hdf5-{0}".format(self.version.replace(".", "_"))))
-
-        srcdl.get(self.source_subfolder)
+        git = tools.Git()
+        git.clone("https://bitbucket.hdfgroup.org/scm/hdffv/hdf5.git",
+                  "hdf5-{0}".format(self.version.replace(".", "_")))
 
     def configure(self):
         self.options["zlib"].shared = self.options.shared

@@ -105,7 +105,6 @@ environment:
           CONAN_TOTAL_PAGES: 3
 
 install:
-  - git submodule update --init --recursive
   - set PATH=%PATH%;%PYTHON%/Scripts/
   - pip.exe install conan conan_package_tools bincrafters_package_tools --upgrade
   - conan user # It creates the conan data directory

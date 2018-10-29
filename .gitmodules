@@ -1,3 +1,0 @@
-[submodule "utils"]
-	path = utils
-	url = https://gitlab.com/ArsenStudio/ArsenEngine/dependencies/conan-package-utils.git
