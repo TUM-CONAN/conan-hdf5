@@ -4,7 +4,7 @@ from conans import ConanFile, tools, CMake
 
 class Hdf5Conan(ConanFile):
     name = "hdf5"
-    version = "1.10.3"
+    version = "1.10.5"
     description = "HDF5 C and C++ libraries"
     url = "https://gitlab.com/ArsenStudio/ArsenEngine/dependencies/conan-{0}".format(name)
     homepage = "https://www.hdfgroup.org/"
@@ -26,7 +26,7 @@ class Hdf5Conan(ConanFile):
     source_subfolder = "source_subfolder"
     build_subfolder = "build_subfolder"
 
-    requires = "zlib/1.2.11@conan/stable"
+    requires = "zlib/1.2.11@camposs/stable"
 
     def source(self):
         minor_version = ".".join(self.version.split(".")[:2])
